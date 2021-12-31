@@ -1,37 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { loadTopCountries } from './api';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Public from './containers/Public';
+import Login from './containers/Login';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const jwt = useSelector(state => state.user.jwt);
-  const [topCountries, setTopCountries] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function fetchData() {
-    const countries = await loadTopCountries();
-    setTopCountries(countries);
-  }
 
   return (
-    <View style={styles.container}>
-      {topCountries.map((country, idx) => (
-        <Text key={`country_${idx}`}>{country.countryName}</Text>
-      ))}
-
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Public} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
