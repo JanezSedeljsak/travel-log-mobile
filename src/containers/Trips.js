@@ -69,7 +69,7 @@ export default () => {
             />}
             <ScrollView>
                 {tripsForDisplay.map((trip, idx) => (
-                    <ListItem key={`trip${idx}`} bottomDivider>
+                    <ListItem key={`trip${idx}`} bottomDivider containerStyle={{ backgroundColor:"transparent" }}>
                         <Avatar source={{ uri: "https://cdn-icons-png.flaticon.com/512/1452/1452378.png" }} />
                         <ListItem.Content>
                             <ListItem.Title>{trip.tripName}</ListItem.Title>

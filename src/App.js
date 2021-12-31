@@ -15,19 +15,21 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const isAuth = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
   const routeIcons = {
-    'Login': 'home',
-    'Register': 'home',
+    'Login': 'key',
+    'Register': 'person-add',
     'Home': 'home',
-    'Members': 'home',
-    'Trips': 'home',
-    'Stats': 'home'
+    'Members': 'people',
+    'Trips': 'paper-plane',
+    'Stats': 'analytics',
+    'AddTrip': 'add-circle-outline'
   }
 
   return (
     <NavigationContainer>
       <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
         headerTitleAlign: 'center',
-        headerStyle: { shadowColor: 'transparent', height: 70 },
+        headerTitleStyle: { fontWeight: 'bold', color: '#eee' },
+        headerStyle: { height: 70, backgroundColor: '#3c71b6' },
         tabBarIcon: ({ focused, color, size }) => {
           return <Ionicons name={routeIcons[route.name]} size={size} color={color} />
         }
@@ -43,6 +45,7 @@ export default function App() {
         <Tab.Screen name="Members" component={Members} />
         <Tab.Screen name="Trips" component={Trips} />
         <Tab.Screen name="Stats" component={Stats} />
+        <Tab.Screen name="AddTrip" component={Stats} />
       </Tab.Navigator>
     </NavigationContainer>
   );

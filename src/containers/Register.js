@@ -4,7 +4,7 @@ import { actions } from '../redux/user'
 import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
-export default () => {
+export default ({ navigation }) => {
     const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
@@ -53,7 +53,7 @@ export default () => {
                 onPress={registerFinish}
             />
             <Text
-                onPress={() => console.log('login')}
+                onPress={() => navigation.navigate('Login')}
                 style={{ width: '95%', marginHorizontal: '2.5%', textAlign: 'left', fontSize: 15, color: '#3c71b6' }}
             >
                 Already have account? Login here!

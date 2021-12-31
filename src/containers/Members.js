@@ -32,7 +32,7 @@ export default () => {
             />
             <ScrollView>
                 {membersForDisplay.map((member, idx) => (
-                    <ListItem key={`member${idx}`} bottomDivider>
+                    <ListItem key={`member${idx}`} bottomDivider containerStyle={{ backgroundColor:"transparent" }}>
                         <Avatar source={{ uri: "https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" }} />
                         <ListItem.Content>
                             <ListItem.Title>{member.fullName}</ListItem.Title>

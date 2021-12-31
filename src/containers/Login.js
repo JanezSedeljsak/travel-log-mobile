@@ -4,7 +4,7 @@ import { actions } from '../redux/user'
 import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
-export default () => {
+export default ({ navigation }) => {
     const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ export default () => {
     }, [dispatch])
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Input
                 placeholder='Email'
                 leftIcon={{ type: 'font-awesome', name: 'envelope' }}
@@ -47,7 +47,7 @@ export default () => {
                 onPress={loginFinish}
             />
             <Text
-                onPress={() => console.log('register')}
+                onPress={() => navigation.navigate('Register')}
                 style={{ width: '95%', marginHorizontal: '2.5%', textAlign: 'left', fontSize: 15, color: '#3c71b6' }}
             >
                 Don't have account? Register here!
