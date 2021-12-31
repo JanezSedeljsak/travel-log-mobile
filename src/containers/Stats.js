@@ -34,8 +34,7 @@ function TopMembersChart({ members }) {
         datasets: [{
             data: members.map(x => x.count),
             color: () => '#ffbb00',
-        }],
-        legend: ["Members by full name"]
+        }]
     };
 
     return <BarChart width={screenWidth} height={220} data={data} chartConfig={chartConfig} />;
@@ -47,8 +46,7 @@ function TopDestinationsChart({ destinations }) {
         datasets: [{
             data: destinations.map(x => x.count),
             color: () => '#ffbb00',
-        }],
-        legend: ["Visits per destination"]
+        }]
     };
 
     return <BarChart width={screenWidth} height={220} data={data} chartConfig={chartConfig} />;
@@ -61,8 +59,7 @@ function TopVisitedCountriesChart({ countries }) {
             data: countries.map(x => x.count),
             color: () => '#ffbb00',
             strokeWidth: 0
-        }],
-        legend: ["Trips per month"]
+        }]
     };
 
     return <BarChart width={screenWidth} height={220} data={data} chartConfig={chartConfig} />;
@@ -75,8 +72,7 @@ function TripsPerMonthChart({ monthData }) {
             data: monthData.map(x => x.count),
             color: () => `#375e97`,
             strokeWidth: 0
-        }],
-        legend: ["Trips per month"]
+        }]
     };
 
     return <LineChart data={data} width={screenWidth} height={220} chartConfig={chartConfig} />;
@@ -101,30 +97,30 @@ export default () => {
 
     return (
         <ScrollView>
-            {topMembers.length && (
+            {topMembers.length ? (
                 <>
                     <ChartHeader text={'Most active members'} />
                     <TopMembersChart members={topMembers} />
                 </>
-            )}
-            {topLocations.length && (
+            ) : null}
+            {topLocations.length ? (
                 <>
                     <ChartHeader text={'Most visited destinations'} />
                     <TopDestinationsChart destinations={topLocations} />
                 </>
-            )}
-            {topCountries.length && (
+            ) : null}
+            {topCountries.length ? (
                 <>
                     <ChartHeader text={'Most visited countries'} />
                     <TopVisitedCountriesChart countries={topCountries} />
                 </>
-            )}
-            {avgTripsPerMonth.length && (
+            ) : null}
+            {avgTripsPerMonth.length ? (
                 <>
                     <ChartHeader text={'Trips per month'} />
                     <TripsPerMonthChart monthData={avgTripsPerMonth} />
                 </>
-            )}
+            ) : null}
 
         </ScrollView>
     )

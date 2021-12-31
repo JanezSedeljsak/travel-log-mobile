@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Public from './containers/Public';
 import Login from './containers/Login';
 import Members from './containers/Members';
@@ -9,25 +10,40 @@ import Trips from './containers/Trips';
 import Register from './containers/Register';
 import Stats from './containers/Stats';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   const isAuth = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
+  const routeIcons = {
+    'Login': 'home',
+    'Register': 'home',
+    'Home': 'home',
+    'Members': 'home',
+    'Trips': 'home',
+    'Stats': 'home'
+  }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Stats" screenOptions={props => ({
+      <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
         headerTitleAlign: 'center',
         headerStyle: { shadowColor: 'transparent', height: 70 },
+        tabBarIcon: ({ focused, color, size }) => {
+          return <Ionicons name={routeIcons[route.name]} size={size} color={color} />
+        }
       })}
       >
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Home" component={Public} />
-        <Stack.Screen name="Members" component={Members} />
-        <Stack.Screen name="Trips" component={Trips} />
-        <Stack.Screen name="Stats" component={Stats} />
-      </Stack.Navigator>
+        {!isAuth ? (
+          <>
+            <Tab.Screen name="Login" component={Login} />
+            <Tab.Screen name="Register" component={Register} />
+          </>
+        ) : null}
+        <Tab.Screen name="Home" component={Public} />
+        <Tab.Screen name="Members" component={Members} />
+        <Tab.Screen name="Trips" component={Trips} />
+        <Tab.Screen name="Stats" component={Stats} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

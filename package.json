@@ -24,6 +24,7 @@
     "react-native-chart-kit": "^6.11.0",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^2.1.0",
+    "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
     "react-redux": "^7.2.6",
