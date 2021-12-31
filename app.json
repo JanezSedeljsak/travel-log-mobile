@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "trave-log-service-mobile",
-    "slug": "trave-log-service-mobile",
+    "name": "travel-log-mobile",
+    "slug": "travel-log-mobile",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ]
   },
-  "name": "trave-log-service-mobile"
+  "name": "travel-log-mobile"
 }
