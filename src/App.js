@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trips" screenOptions={props => ({
+      <Stack.Navigator initialRouteName="Members" screenOptions={props => ({
         headerTitleAlign: 'center',
         headerStyle: { shadowColor: 'transparent', height: 70 },
       })}
