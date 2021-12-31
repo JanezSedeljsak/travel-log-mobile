@@ -55,7 +55,7 @@ export default () => {
             {usrEmail && <Button
                 title={viewAllTrips ? "My trips only" : "Show all trips"}
                 buttonStyle={{
-                    backgroundColor: 'rgba(111, 202, 186, 1)',
+                    backgroundColor: '#3c71b6',
                     borderRadius: 5,
                 }}
                 titleStyle={{ fontWeight: 'bold', fontSize: 16 }}

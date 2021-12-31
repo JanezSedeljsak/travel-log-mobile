@@ -6,6 +6,7 @@ import Public from './containers/Public';
 import Login from './containers/Login';
 import Members from './containers/Members';
 import Trips from './containers/Trips';
+import Register from './containers/Register';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,12 +15,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Members" screenOptions={props => ({
+      <Stack.Navigator initialRouteName="Register" screenOptions={props => ({
         headerTitleAlign: 'center',
         headerStyle: { shadowColor: 'transparent', height: 70 },
       })}
       >
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Home" component={Public} />
         <Stack.Screen name="Members" component={Members} />
         <Stack.Screen name="Trips" component={Trips} />

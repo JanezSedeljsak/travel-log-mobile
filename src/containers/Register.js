@@ -8,19 +8,25 @@ export default () => {
     const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
-    const loginFinish = () => {
-        dispatch(actions.login({ email, password }));
-    }
-
     const [email, setEmail] = useState("");
+    const [fullName, setFullName] = useState("");
     const [password, setPassword] = useState("");
+
+    function registerFinish() {
+        dispatch(actions.register({ email, fullName, password }));
+    }
 
     useEffect(() => {
         dispatch(actions.logOut()) //reset state and clear any errors
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+            <Input
+                placeholder='Full name'
+                leftIcon={{ type: 'font-awesome', name: 'user' }}
+                onChangeText={setFullName}
+            />
             <Input
                 placeholder='Email'
                 leftIcon={{ type: 'font-awesome', name: 'envelope' }}
@@ -44,15 +50,14 @@ export default () => {
                     marginHorizontal: '2.5%',
                     marginVertical: 10,
                 }}
-                onPress={loginFinish}
+                onPress={registerFinish}
             />
             <Text
-                onPress={() => console.log('register')}
+                onPress={() => console.log('login')}
                 style={{ width: '95%', marginHorizontal: '2.5%', textAlign: 'left', fontSize: 15, color: '#3c71b6' }}
             >
-                Don't have account? Register here!
+                Already have account? Login here!
             </Text>
         </View>
-
     )
 }
