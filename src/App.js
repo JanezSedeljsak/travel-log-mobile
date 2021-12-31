@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import { loadTopCountries } from './api';
 
 export default function App() {
+  const jwt = useSelector(state => state.user.jwt);
   const [topCountries, setTopCountries] = useState([]);
   useEffect(() => {
     fetchData();
@@ -19,7 +21,7 @@ export default function App() {
       {topCountries.map((country, idx) => (
         <Text key={`country_${idx}`}>{country.countryName}</Text>
       ))}
-      
+
       <StatusBar style="auto" />
     </View>
   );

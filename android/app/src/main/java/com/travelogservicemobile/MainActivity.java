@@ -1,4 +1,4 @@
-package com.travelogservicemobile;
+package com.travellogmobile;
 
 import android.os.Build;
 import android.os.Bundle;
