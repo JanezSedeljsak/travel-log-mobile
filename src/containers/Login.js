@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../redux/user'
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 export default ({ navigation }) => {
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
     const loginFinish = () => {
@@ -17,7 +16,7 @@ export default ({ navigation }) => {
 
     useEffect(() => {
         dispatch(actions.logOut()) //reset state and clear any errors
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -53,6 +52,5 @@ export default ({ navigation }) => {
                 Don't have account? Register here!
             </Text>
         </View>
-
     )
 }

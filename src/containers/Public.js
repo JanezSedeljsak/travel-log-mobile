@@ -1,47 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { loadMostActiveuMembers, loadTopDestinations } from '../api';
+import React from 'react';
 import { View, Text } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ListItem, Avatar } from 'react-native-elements';
+import Dashboard from 'react-native-dashboard';
 
-function BottomNav() {
-    const Tab = createBottomTabNavigator();
+const data = [{
+    name: 'Login/Register',
+    background: '#ef2648',
+    route: 'Auth'
+}, {
+    name: 'Browse anonymously',
+    background: '#fbc800',
+    route: 'Browse'
+}];
 
-    return <></>;
-    /*return (
-        <Tab.Navigator>
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-    );*/
-}
-
-export default () => {
-    const [topMembers, setTopMembers] = useState([]);
-    const [topLocations, setTopLocations] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    async function fetchData() {
-        setTopMembers(await loadMostActiveuMembers());
-        setTopLocations(await loadTopDestinations());
-    }
-
+export default ({ navigation }) => {
     return (
-        <View>
-            {
-                topMembers.map((member, idx) => (
-                    <ListItem key={`member${idx}`} bottomDivider>
-                        <Avatar source={{ uri: "https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" }} />
-                        <ListItem.Content>
-                            <ListItem.Title>{member.user.fullname}</ListItem.Title>
-                            <ListItem.Subtitle>{`${member.user.email} - Trips: ${member.count}`}</ListItem.Subtitle>
-                        </ListItem.Content>
-                    </ListItem>
-                ))
-            }
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ width: '95%', marginHorizontal: '2.5%', backgroundColor: '#5a9a91', borderRadius: 5, flex: 0.5, justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
+                <Text style={{ fontSize: 16, color: '#eee', margin: 15, textAlign: 'center', fontWeight: 'bold' }}>{"~Pass on the beautiful memories you've made around the world~"}</Text>
+            </View>
+
+            <Dashboard
+                data={data}
+                background={true}
+                column={2}
+                rippleColor={'#3498db'}
+                marginHorizontal={'2.5%'}
+                card={card => navigation.navigate(card.route)}
+            />
         </View>
     )
 }

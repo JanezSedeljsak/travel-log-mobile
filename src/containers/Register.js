@@ -5,7 +5,6 @@ import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 export default ({ navigation }) => {
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
