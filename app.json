@@ -3,9 +3,14 @@
     "name": "travel-log-mobile",
     "slug": "travel-log-mobile",
     "version": "1.0.0",
+    "icon": "./src/assets/icon.png",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.janezsedeljsak.travelogmobile",
+      "versionCode": 1
+    }
   },
   "name": "travel-log-mobile"
 }
