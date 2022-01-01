@@ -16,7 +16,7 @@ export default function App() {
 
     return (
             <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
-                headerTitleAlign: 'center',
+                headerTitleAlign: 'left',
                 headerTitleStyle: { fontWeight: 'bold', color: '#eee' },
                 headerStyle: { height: 70, backgroundColor: '#3c71b6' },
                 tabBarIcon: ({ focused, color, size }) => {
