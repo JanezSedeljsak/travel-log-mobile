@@ -8,7 +8,7 @@ export default function headerWithIcon({ navigation }) {
         headerTitle: props => <Text {...props} />,
         headerRight: () => (
             <Ionicons
-                name={'arrow-undo'} size={25} color={'#eee'} style={{ marginHorizontal: 15 }}
+                name={'home'} size={25} color={'#eee'} style={{ marginHorizontal: 15 }}
                 onPress={() => navigation.getParent()?.navigate('Home')}
             />
         ),

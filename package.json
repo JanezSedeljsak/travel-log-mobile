@@ -25,6 +25,8 @@
     "react-native-dashboard": "^0.0.6",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^2.1.0",
+    "react-native-paper": "^4.11.1",
+    "react-native-swipe-gestures": "^1.0.5",
     "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
