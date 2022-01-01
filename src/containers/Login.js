@@ -5,6 +5,7 @@ import { View, Text, ImageBackground } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 export default ({ navigation }) => {
+    const isLoading = useSelector(state => state.user.isFetching === true);
     const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
@@ -51,6 +52,7 @@ export default ({ navigation }) => {
                     marginVertical: 10,
                 }}
                 onPress={loginFinish}
+                loading={isLoading}
             />
             <Text
                 onPress={() => navigation.navigate('Register')}
