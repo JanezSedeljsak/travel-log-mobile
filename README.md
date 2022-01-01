@@ -1,4 +1,4 @@
-# Travel log service client
+# Travel log mobile
 Mobile app of a University project for Informational systems.
 
 ## Short description
