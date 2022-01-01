@@ -5,6 +5,7 @@ import { View, Text } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 export default ({ navigation }) => {
+    const isLoggedIn = useSelector(state => state.user.isLoggedIn && state.user.jwt !== null);
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
@@ -19,6 +20,11 @@ export default ({ navigation }) => {
         dispatch(actions.logOut()) //reset state and clear any errors
     }, [dispatch]);
 
+    if (isLoggedIn) {
+        navigation.getParent()?.navigate('Browse');
+        return null;
+    }
+
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
             <Input
@@ -32,6 +38,7 @@ export default ({ navigation }) => {
                 onChangeText={setEmail}
             />
             <Input
+                secureTextEntry={true}
                 placeholder='Password'
                 leftIcon={{ type: 'font-awesome', name: 'key' }}
                 onChangeText={setPassword}
