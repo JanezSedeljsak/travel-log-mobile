@@ -22,7 +22,7 @@ export default function Public({ navigation }) {
                 <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end', margin: 20 }}>
                     {(isAuth && email) ? (
                         <>
-                        <Text style={{ ...textStyle, textAlign: 'center', fontStyle: 22 }}>WELCOME</Text>
+                        <Text style={{ ...textStyle, textAlign: 'center', fontSize: 22 }}>WELCOME</Text>
                         <Text style={{ ...textStyle, marginVertical: 10, textAlign: 'center' }}>{email}</Text>
                         </>
                     ) : null}
