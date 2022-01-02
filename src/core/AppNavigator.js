@@ -26,7 +26,7 @@ export default function App() {
             screenOptions={({ route }) => ({
                 headerTitleAlign: 'left',
                 headerTitleStyle: { fontWeight: 'bold', color: '#eee', fontSize: 20 },
-                headerStyle: { height: 70, backgroundColor: '#3c71b6', paddingBottom: 10 },
+                headerStyle: { height: 70, backgroundColor: '#3c71b6' },
                 tabBarIcon: ({ focused, color, size }) => {
                     return <Ionicons name={routeIcons[route.name]} size={size} color={color} />
                 },

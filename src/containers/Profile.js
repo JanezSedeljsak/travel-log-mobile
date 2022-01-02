@@ -26,8 +26,8 @@ export default () => {
             <ScrollView style={{ width: '100%' }}>
                 <LabelWithValue label={"Full name"} value={profileData.email} />
                 <LabelWithValue label={"Email"} value={profileData.fullname} />
-                <LabelWithValue label={"Birthdate"} value={moment(profileData.birthDate).format("DD.MM.yyyy")} />
-                <LabelWithValue label={"Member since"} value={moment(profileData.createdAt).format("DD.MM.yyyy")} />
+                <LabelWithValue label={"Birthdate"} value={moment(new Date(profileData.birthdate)).format("DD.MM.yyyy")} />
+                <LabelWithValue label={"Member since"} value={moment(new Date(profileData.createdAt)).format("DD.MM.yyyy")} />
                 <LabelWithValue label={"Lang code"} value={profileData.langCode} />
             </ScrollView>
         </View>

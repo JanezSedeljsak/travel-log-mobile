@@ -45,7 +45,7 @@ export default ({ navigation }) => {
                 onChangeText={setPassword}
             />
             <Button
-                title="Log in"
+                title="Register"
                 buttonStyle={{
                     backgroundColor: '#3c71b6',
                     borderRadius: 5,
